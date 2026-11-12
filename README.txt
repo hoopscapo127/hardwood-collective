@@ -1,12 +1,12 @@
-HARDWOOD COLLECTIVE — HOME-SCREEN APP
-=====================================
+WISEHOOPS — HOME-SCREEN APP
+===========================
 
-PUT IT ONLINE (free, about 2 minutes)
-1. Go to https://app.netlify.com/drop and sign up (free).
-2. Drag this whole "hardwood-collective-app" folder onto the page.
-3. Netlify gives you an address like https://something-random.netlify.app
-   In Site settings > Change site name, rename it (for example hardwood-collective)
-   to get https://hardwood-collective.netlify.app
+WHERE IT LIVES
+The live site is https://hardwoodcollectiv.netlify.app
+It is published from the GitHub repository hoopscapo127/hardwood-collective.
+Netlify republishes automatically whenever a file there changes.
+Do NOT drag this folder onto Netlify: that would replace the stories and
+stats the automatic agent has added on GitHub.
 
 INSTALL IT ON A PHONE OR COMPUTER
 - iPhone / iPad (Safari): open the address, tap Share, then "Add to Home Screen".
@@ -16,25 +16,21 @@ INSTALL IT ON A PHONE OR COMPUTER
   install icon at the right end of the address bar.
 After the first visit it works offline.
 
-ADD A NEWS STORY
-Open news.json in any text editor and copy one of the entries. Fill in:
-  headline     the story's headline
-  source       who reported it (NBA.com, ESPN, ...)
-  url          link to the original story
-  publishedAt  date as YYYY-MM-DD
-  team         a team code like "BOS" or "LAL", or null
-  postedAt     any number bigger than the newest entry's (it marks the story as new)
-Save, then drag the folder onto Netlify again (Deploys tab > drag and drop).
-People see the new story, with an alert, the next time they open the app.
+NEWS AND GOAT STATS
+A cloud agent ("Hardwood Collective news + GOAT stats" at claude.ai/code/routines)
+runs at 8 am and 8 pm Eastern. It adds news stories to news.json and refreshes
+this season's stats in goat-live.json, then saves them to GitHub.
 
-AFTER CHANGING ANY OTHER FILE
-Open sw.js and change VERSION (for example "hardwood-v1" to "hardwood-v2"),
-then redeploy. That tells installed apps to download the new version.
+CHANGING THE SITE ITSELF
+Upload the changed files on GitHub (Add file > Upload files), never news.json.
+After changing any file other than news.json or goat-live.json, open sw.js and
+change VERSION (for example "wisehoops-v4" to "wisehoops-v5"). That tells
+installed apps to download the new version.
 
 FILES
 index.html            the app
 players-data.js       every player-season since 1949–50 (from Basketball-Reference.com)
-news.json             the News tab
+news.json             the News tab (updated automatically)
 goat-live.json        this season's stats for the GOAT 100 tab (updated automatically)
 scripts/              the script that refreshes goat-live.json
 manifest.webmanifest  app name, icon and colors

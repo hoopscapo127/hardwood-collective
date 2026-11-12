@@ -1,6 +1,6 @@
-// Hardwood Collective offline support.
+// WiseHoops offline support.
 // When you change any file, bump VERSION so installed apps pick up the update.
-const VERSION = "hardwood-v3";
+const VERSION = "wisehoops-v4";
 const CORE = [
   "./", "index.html", "players-data.js", "manifest.webmanifest", "news.json", "goat-live.json",
   "icons/icon-180.png", "icons/icon-192.png", "icons/icon-512.png",

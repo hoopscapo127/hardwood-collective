@@ -22,7 +22,7 @@ def main():
     season = int(live["season"])
     ids = set(live.get("players", {}).keys())
     url = "https://www.basketball-reference.com/leagues/NBA_%d_advanced.html" % season
-    req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0 (compatible; HardwoodCollective/1.0)"})
+    req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0 (compatible; WiseHoops/1.0)"})
     html = urllib.request.urlopen(req, timeout=60).read().decode("utf-8", "replace")
 
     found = {}
