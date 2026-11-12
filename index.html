@@ -299,6 +299,23 @@ tbody tr:last-child td { border-bottom: 0; }
 .tierchip.t2 { border-color: var(--accent); color: var(--accent); }
 .pr .keys { color: var(--muted); font-size: 13px; white-space: normal; min-width: 180px; }
 
+/* GOAT 100 */
+.goattools { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; padding: 0 16px 12px; }
+.goattools input[type=search] { flex: 1 1 220px; max-width: 320px; }
+.goattools label { display: inline-flex; gap: 6px; align-items: center; font-size: 13px; color: var(--muted); cursor: pointer; }
+.goat td { vertical-align: top; }
+.goat td.rk { vertical-align: top; padding-top: 12px; }
+.goat .why { font-size: 13px; color: var(--muted); white-space: normal; max-width: 46ch; margin-top: 3px; line-height: 1.4; }
+.goat .mvc { width: 1%; white-space: nowrap; }
+.goat .season b { color: var(--accent); }
+.goat .season .sub { white-space: nowrap; }
+.mv { font: 700 13px var(--body); color: var(--muted); font-variant-numeric: tabular-nums; }
+.mv.up { color: #2E9E5B; }
+.mv.down { color: var(--accent); }
+.mv.lock { color: var(--accent); }
+.movers { margin: 0; padding-left: 20px; display: grid; gap: 8px; }
+.movers li { display: flex; justify-content: space-between; gap: 10px; }
+
 /* 1v1 */
 .duel { display: grid; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); gap: 14px; align-items: stretch; }
 .duel .vs { align-self: center; font: 800 34px/1 var(--display); color: var(--accent); }
@@ -352,6 +369,7 @@ details.how p { font-size: 13px; color: var(--muted); margin: 8px 0 0; }
       <button class="tab" role="tab" id="tab-wheel" aria-selected="false">HoopWheel</button>
       <button class="tab" role="tab" id="tab-mvp" aria-selected="false">MVP Race</button>
       <button class="tab" role="tab" id="tab-power" aria-selected="false">Power Rankings</button>
+      <button class="tab" role="tab" id="tab-goat" aria-selected="false">GOAT 100</button>
       <button class="tab" role="tab" id="tab-ovo" aria-selected="false">1v1</button>
     </div>
 
@@ -451,7 +469,23 @@ details.how p { font-size: 13px; color: var(--muted); margin: 8px 0 0; }
       </section>
     </div>
 
-    <div class="mvpgrid" id="ovoView" hidden>
+<div class="prwrap" id="goatView" hidden>
+  <div class="prhead">
+    <section class="panel"><div class="essay" id="goatIntro"></div></section>
+    <aside class="card" id="goatSide" style="position:static"></aside>
+  </div>
+  <section class="panel">
+    <div class="feedhead"><h2>All-time top 100</h2><span class="sub" id="goatAsOf"></span></div>
+    <div class="goattools"><input id="goatQ" type="search" placeholder="Find a player…" aria-label="Find a player in the top 100"><label><input type="checkbox" id="goatActive"> Active players only</label></div>
+    <div class="tablebox" style="border:0;border-radius:0 0 8px 8px"><table class="pr goat" id="goatTable"></table></div>
+  </section>
+  <section class="panel">
+    <div class="feedhead"><h2>Knocking on the door</h2><span class="sub">Active players ranked 101–110</span></div>
+    <div class="tablebox" style="border:0;border-radius:0 0 8px 8px"><table class="pr goat" id="goatBubble"></table></div>
+  </section>
+</div>
+
+<div class="mvpgrid" id="ovoView" hidden>
       <div class="duel" id="duel"></div>
       <div class="verdict">
         <section class="panel"><div class="essay" id="ovoEssay"></div></section>
@@ -671,9 +705,10 @@ function renderDetail() {
 function setView(v) {
   state.view = v;
   const table = v === "players" || v === "teams";
-  for (const k of ["players","teams","news","builder","wheel","mvp","power","ovo"]) $("tab-" + k).setAttribute("aria-selected", v === k);
+  for (const k of ["players","teams","news","builder","wheel","mvp","power","goat","ovo"]) $("tab-" + k).setAttribute("aria-selected", v === k);
   $("mvpView").hidden = v !== "mvp";
   $("powerView").hidden = v !== "power";
+  $("goatView").hidden = v !== "goat";
   $("ovoView").hidden = v !== "ovo";
   $("wheelView").hidden = v !== "wheel";
   document.body.dataset.arena = v === "news" || v === "wheel" ? "garden" : "farm";
@@ -688,6 +723,7 @@ function setView(v) {
   else if (v === "wheel") renderWheelTab();
   else if (v === "mvp") renderMvp();
   else if (v === "power") renderPower();
+  else if (v === "goat") renderGoat();
   else if (v === "ovo") renderOvo();
   else render();
 }
@@ -1420,6 +1456,215 @@ function renderPower() {
       <td class="keys">${x.keys.map(esc).join(", ")}</td></tr>`; }).join("")}</tbody>`;
 }
 $("tab-power").onclick = () => setView("power");
+
+/* ---------- GOAT 100 ---------- */
+// Opening-night order for 2026–27 (my ranking; the top three are fixed). Bubble players (101+) are active and can climb in.
+const GOAT_LIST = [
+  ["jamesle01","Four titles with three franchises, and the NBA's all-time leading scorer."],
+  ["jordami01","Six titles, six Finals MVPs, five MVPs and ten scoring titles."],
+  ["abdulka01","Six MVPs, six titles and the skyhook. Held the scoring record for 39 years."],
+  ["johnsma02","Five titles and three MVPs. Reinvented the point guard at 6-foot-9."],
+  ["russebi01","Eleven championships in thirteen seasons. The ultimate winner."],
+  ["chambwi01","100 points in a game and 50.4 a night in 1961–62."],
+  ["birdla01","Three straight MVPs and three titles in Boston."],
+  ["duncati01","Five titles across three decades. The model franchise big man."],
+  ["onealsh01","The most dominant force of his era, with three straight Finals MVPs."],
+  ["bryanko01","Five titles, 81 points and twenty seasons with one franchise."],
+  ["curryst01","Four titles, and the shooter who changed how the game is played."],
+  ["olajuha01","Back-to-back titles, the Dream Shake and the all-time blocks leader."],
+  ["jokicni01","Three MVPs and a title. The best passing big man ever."],
+  ["duranke01","Two titles, two Finals MVPs and one of the purest scorers ever."],
+  ["antetgi01","Two MVPs, a Defensive Player of the Year and 50 in the 2021 title clincher."],
+  ["garneke01","MVP, Defensive Player of the Year and a title in Boston."],
+  ["nowitdi01","The 2011 title run and Finals MVP. The best shooting seven-footer ever."],
+  ["roberos01","Averaged a triple-double for a full season in 1961–62."],
+  ["westje01","The Logo, and the only Finals MVP from a losing team."],
+  ["malonmo01","Three MVPs and the 1983 title. Relentless on the glass."],
+  ["ervinju01","Dr. J took the game above the rim. MVP in both the ABA and NBA (only his NBA stats are counted here)."],
+  ["leonaka01","Two Finals MVPs with two different franchises."],
+  ["malonka01","Two MVPs and 36,928 points, third on the all-time list."],
+  ["robinda01","MVP, Defensive Player of the Year and two titles. Once scored 71 in a game."],
+  ["gilgesh01","Back-to-back MVPs and the 2025 title."],
+  ["barklch01","The 1993 MVP, and a 6-foot-6 rebounding force."],
+  ["bayloel01","Pioneered the aerial game. Scored 71 in a game in 1960."],
+  ["paulch01","The Point God: an elite passer and defender for two decades."],
+  ["pettibo01","Two MVPs and 50 points in the 1958 title clincher."],
+  ["stockjo01","The all-time leader in assists and steals."],
+  ["wadedw01","Three titles and a 2006 Finals for the ages."],
+  ["pippesc01","Six titles alongside Jordan, and one of the great perimeter defenders."],
+  ["nashst01","Back-to-back MVPs running the Seven Seconds or Less Suns."],
+  ["hardeja01","The 2018 MVP and three straight scoring titles."],
+  ["thomais01","Led the Bad Boys Pistons to back-to-back titles."],
+  ["iversal01","The 2001 MVP and four scoring titles at six feet tall."],
+  ["havlijo01","Eight titles, and \"Havlicek stole the ball!\""],
+  ["ewingpa01","Knicks icon, eleven-time All-Star and Hall of Famer."],
+  ["kiddja01","Triple-double machine and 2011 champion."],
+  ["doncilu01","Six All-NBA selections, a scoring title and a 73-point game."],
+  ["mikange01","The league's first superstar, with five titles for the Lakers."],
+  ["barryri01","Underhanded free throws and the 1975 Finals MVP."],
+  ["mchalke01","The deepest bag of post moves ever, and three titles."],
+  ["paytoga01","The Glove: 1996 Defensive Player of the Year and nine All-Defensive first teams."],
+  ["westbru01","The 2017 MVP and the career triple-doubles leader."],
+  ["davisan02","2020 champion and one of the most versatile big men ever."],
+  ["piercpa01","The Truth, and the 2008 Finals MVP."],
+  ["drexlcl01","Clyde the Glide, and the 1995 title with Houston."],
+  ["cousybo01","Six titles. The original showtime point guard."],
+  ["hayesel01","The Big E: over 27,000 points and the 1978 title."],
+  ["howardw01","Three straight Defensive Player of the Year awards and the 2020 title."],
+  ["fraziwa01","Led the Knicks to two titles, including Game 7 in 1970."],
+  ["embiijo01","The 2023 MVP and two scoring titles."],
+  ["tatumja01","The 2024 champion and a perennial first-team All-NBA star."],
+  ["reedwi01","The 1970 MVP, and the limp onto the court for Game 7."],
+  ["wilkido01","The Human Highlight Film."],
+  ["millere01","Clutch shooter: eight points in nine seconds at the Garden."],
+  ["allenra02","Two titles and the corner three in Game 6 of the 2013 Finals."],
+  ["gervige01","The Iceman, with four scoring titles."],
+  ["parketo01","Four titles and the 2007 Finals MVP."],
+  ["waltobi01","The 1977 Finals MVP and 1978 MVP before injuries hit."],
+  ["lillada01","Dame Time. One of the deepest shooters ever."],
+  ["gasolpa01","Two titles as Kobe's co-star."],
+  ["ginobma01","Four titles and the Euro step."],
+  ["unselwe01","MVP and Rookie of the Year in the same season, then the 1978 title."],
+  ["cowenda01","The 1973 MVP and two titles in Boston."],
+  ["thurmna01","The first official quadruple-double in NBA history."],
+  ["irvinky01","The 2016 title-winning three, and maybe the best handle ever."],
+  ["mcgratr01","Thirteen points in 35 seconds, and two scoring titles."],
+  ["cartevi01","The greatest dunker ever, over 22 NBA seasons."],
+  ["anthoca01","Ten-time All-Star and one of the purest scorers of his era."],
+  ["rodmade01","Seven straight rebounding titles and five rings."],
+  ["mournal01","Two Defensive Player of the Year awards, and the 2006 title after a kidney transplant."],
+  ["mcadobo01","The 1975 MVP and three straight scoring titles."],
+  ["georgpa01","A two-way star with six All-NBA selections."],
+  ["butleji01","Dragged the Heat to two Finals as the underdog."],
+  ["webbech01","First-team All-NBA in 2001, and the face of the Kings' best era."],
+  ["wallabe01","Undrafted, then four Defensive Player of the Year awards and the 2004 title."],
+  ["greerha01","Ten straight All-Star games and the 1967 title."],
+  ["jonessa01","Ten titles in twelve seasons with Boston."],
+  ["schaydo01","Early-era star who won the 1955 title."],
+  ["dantlad01","Two scoring titles, and one of the most efficient scorers ever."],
+  ["kingbe01","The 1985 scoring title, and 60 points on Christmas Day 1984."],
+  ["parisro01","The Chief: four titles over 21 seasons."],
+  ["worthja01","Big Game James, the 1988 Finals MVP."],
+  ["boshch01","Two titles in Miami and eleven All-Star selections."],
+  ["hillgr01","Seven-time All-Star whose early years were all-time level."],
+  ["greendr01","The defensive engine of four Warriors titles, and the 2017 Defensive Player of the Year."],
+  ["thompkl01","Four titles and 37 points in one quarter."],
+  ["maravpe01","Pistol Pete, decades ahead of his time."],
+  ["bingda01","The 1968 scoring title and a Pistons icon."],
+  ["gilmoar01","ABA MVP and one of the most efficient big men ever."],
+  ["mingya01","Eight-time All-Star who opened the NBA to China."],
+  ["bookede01","Seventy points in a game and a 2021 Finals run."],
+  ["johnske02","Five All-NBA teams running the early-'90s Suns."],
+  ["mutomdi01","Four Defensive Player of the Year awards and the finger wag."],
+  ["wembavi01","Third in MVP voting and first-team All-NBA in his third season."],
+  ["lucasje01","An elite rebounder and the 1973 champion."],
+  ["arizipa01","Two scoring titles and the 1956 title."],
+  ["edwaran01","Two All-NBA selections and back-to-back conference finals runs."],
+  ["mitchdo01"],["brownja02"],["brunsja01"],["townska01"],["goberru01"],["cunnica01"],["halibty01"],["adebaba01"],
+  ["sabondo01"],["murraja01"],["holidjr01"],["foxde01"],["youngtr01"],["siakapa01"],["maxeyty01"],["willija06"],
+  ["holmgch01"],["moranja01"],["banchpa01"],["willizi01"],
+];
+const GOAT_LOCKED = 3;
+const GOAT_SEASON = 2027;
+// Legacy points: opening-night rank r is worth 100·e^(−(r−1)/45). Active players add this season's results on top.
+const goatBase = r => 100 * Math.exp(-(r - 1) / 45);
+const GOAT_WS_PTS = 0.25;
+const GOAT_AWARD_PTS = { "MVP": 3, "Finals MVP": 2.5, "Champion": 2, "DPOY": 1, "All-NBA 1st": 1.5, "All-NBA 2nd": 1, "All-NBA 3rd": 0.5 };
+const goat = { live: null, loaded: false, filter: "", activeOnly: false };
+
+async function loadGoatLive() {
+  try {
+    const r = await fetch("goat-live.json", { cache: "no-cache" });
+    if (r.ok) goat.live = await r.json();
+  } catch {}
+  goat.loaded = true;
+  if (state.view === "goat") renderGoat();
+}
+
+function goatSeason(id) {
+  const L = goat.live;
+  if (L && L.season === GOAT_SEASON && L.players && L.players[id]) return { g: +L.players[id].g || 0, ws: +L.players[id].ws || 0, awards: (L.awards && L.awards[id]) || [] };
+  const r = HP.get(id)?.[2].find(x => x[0] === GOAT_SEASON);
+  return r ? { g: r[4] || 0, ws: r[9] || 0, awards: (L && L.awards && L.awards[id]) || [] } : null;
+}
+
+function buildGoat() {
+  const rows = GOAT_LIST.map(([id, why], i) => {
+    const p = HP.get(id); if (!p) return null;
+    const seasons = p[2], open = i + 1;
+    const active = seasons.some(r => r[0] === GOAT_SEASON);
+    const past = seasons.filter(r => r[0] < GOAT_SEASON);
+    const cur = active ? goatSeason(id) : null;
+    const awardPts = cur ? cur.awards.reduce((s, a) => s + (GOAT_AWARD_PTS[a] || 0), 0) : 0;
+    const gain = cur ? Math.max(0, cur.ws) * GOAT_WS_PTS + awardPts : 0;
+    return {
+      id, name: p[1], why: why || "", open, active, cur, gain,
+      score: goatBase(open) + gain,
+      from: seasons[0][0], to: seasons[seasons.length - 1][0],
+      ws: past.reduce((s, r) => s + (r[9] || 0), 0),
+      pts: past.reduce((s, r) => s + (r[6] || 0), 0),
+      mvps: past.filter(r => r[11] === 1).length,
+      allnba: past.filter(r => r[12]).length,
+    };
+  }).filter(Boolean);
+  const locked = rows.filter(x => x.open <= GOAT_LOCKED);
+  const rest = rows.filter(x => x.open > GOAT_LOCKED).sort((a, b) => b.score - a.score || a.open - b.open);
+  const out = [...locked, ...rest];
+  out.forEach((x, i) => { x.rank = i + 1; x.move = x.open - x.rank; });
+  return out;
+}
+
+function goatAsOf() {
+  const d = goat.live && goat.live.updated;
+  if (d) { const t = new Date(d + "T12:00:00"); if (!isNaN(t)) return t.toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric" }); }
+  return typeof PR_ASOF === "string" ? PR_ASOF : "opening night";
+}
+
+function goatMove(x) {
+  if (x.open <= GOAT_LOCKED) return `<span class="mv lock" title="Locked">●</span>`;
+  if (!x.move) return `<span class="mv">–</span>`;
+  return x.move > 0 ? `<span class="mv up" title="Up ${x.move} since opening night">▲${x.move}</span>` : `<span class="mv down" title="Down ${-x.move} since opening night">▼${-x.move}</span>`;
+}
+
+function renderGoat() {
+  if (!HIST.length) { $("goatIntro").innerHTML = `<p class="msg err">The player database didn't load. Reload the page to try again.</p>`; return; }
+  if (!goat.loaded && !goat.loading) { goat.loading = true; loadGoatLive(); }
+  const all = buildGoat(), top = all.slice(0, 100), bubble = all.slice(100, 110);
+  const activeTop = top.filter(x => x.active);
+  const movers = activeTop.filter(x => x.move > 0).sort((a, b) => b.move - a.move || a.rank - b.rank).slice(0, 5);
+  const entered = top.filter(x => x.open > 100);
+  $("goatAsOf").textContent = `Updated ${goatAsOf()}`;
+  $("goatIntro").innerHTML = `<div class="lbl">The all-time list</div><h3>The GOAT 100</h3>
+    <p>This is my ranking of the 100 greatest players in NBA history. LeBron James, Michael Jordan and Kareem Abdul-Jabbar hold the top three spots no matter what. Everyone else is ordered by legacy, and that legacy is still being written: ${activeTop.length} of the 100 are active, and every game they play this season can move them.</p>
+    <p class="msg">Retired players hold their spots. Active players climb as they pile up win shares and awards this season, and drop when someone passes them. Ten more active players are knocking on the door below, and any of them can play their way in.</p>`;
+  $("goatSide").innerHTML = `<div class="top"><div class="lbl" style="color:#A9B1C7">Biggest climbers this season</div><div class="record" style="font-size:52px">${movers.length ? "▲" + movers[0].move : "–"}</div><span class="tier">${movers.length ? esc(movers[0].name) : "No moves yet"}</span></div>
+    <div class="body">
+      ${movers.length ? `<ol class="movers">${movers.map(x => `<li><span class="name">${esc(x.name)}</span><span class="sub">No. ${x.open} → No. ${x.rank}</span></li>`).join("")}</ol>` : `<p class="msg">Nobody has moved yet. Check back as the season goes on.</p>`}
+      ${entered.length ? `<p class="msg"><b>New to the list:</b> ${entered.map(x => esc(x.name)).join(", ")}.</p>` : ""}
+      <details class="how"><summary>How the rankings move</summary>
+        <p>Each player starts the season with legacy points based on his opening-night spot: No. 4 has 93.6, No. 50 has 33.7, No. 100 has 11.1. The gap between neighbors is about two points near the top and a quarter point near No. 100, so it takes far more to climb into the top ten than into the top 100.</p>
+        <p>Active players add a quarter point for every win share they earn this season, plus bonuses for awards when they're announced: MVP 3, Finals MVP 2.5, a championship 2, Defensive Player of the Year 1, and All-NBA first, second or third team 1.5, 1 or 0.5. A great season (about 15 win shares) is worth roughly 4 points. Season stats are refreshed daily from Basketball-Reference.com.</p>
+        <p>Career numbers in the table cover every season before this one. Julius Erving, Artis Gilmore and Rick Barry also starred in the ABA, which isn't included.</p>
+      </details></div>`;
+  const q = norm(goat.filter || "");
+  const shown = top.filter(x => (!goat.activeOnly || x.active) && (!q || norm(x.name).includes(q)));
+  const row = x => `<tr class="${x.rank <= 3 ? "top3" : ""}${x.active ? " act" : ""}">
+      <td class="rk">${x.rank}</td>
+      <td class="mvc">${goatMove(x)}</td>
+      <td><span class="name">${esc(x.name)}</span> ${x.active ? '<span class="chip active">Active</span>' : ""}${x.open <= GOAT_LOCKED ? ' <span class="chip">Locked</span>' : ""}<div class="sub">${x.from === x.to ? seasonLabel(x.from) : `${x.from - 1}–${String(x.to).slice(2)}`}</div>${x.why ? `<div class="why">${esc(x.why)}</div>` : ""}</td>
+      <td class="num">${Math.round(x.pts).toLocaleString()}</td>
+      <td class="num">${x.ws.toFixed(1)}</td>
+      <td class="num">${x.mvps || "–"}</td>
+      <td class="num">${x.allnba || "–"}</td>
+      <td class="num season">${x.cur ? `<b>+${x.gain.toFixed(1)}</b><div class="sub">${x.cur.ws.toFixed(1)} WS, ${x.cur.g} G${x.cur.awards.length ? ", " + x.cur.awards.map(esc).join(", ") : ""}</div>` : '<span class="sub">–</span>'}</td>
+      <td class="num">${x.score.toFixed(1)}</td></tr>`;
+  const head = `<thead><tr><th>#</th><th title="Change since opening night">Move</th><th>Player</th><th class="num">Career pts</th><th class="num">Career WS</th><th class="num">MVPs</th><th class="num">All-NBA</th><th class="num">This season</th><th class="num">Legacy</th></tr></thead>`;
+  $("goatTable").innerHTML = head + `<tbody>${shown.map(row).join("") || `<tr><td colspan="9" class="msg" style="padding:16px">No players match.</td></tr>`}</tbody>`;
+  $("goatBubble").innerHTML = head + `<tbody>${bubble.map(row).join("")}</tbody>`;
+}
+$("tab-goat").onclick = () => setView("goat");
+$("goatQ").addEventListener("input", e => { goat.filter = e.target.value; renderGoat(); });
+$("goatActive").addEventListener("change", e => { goat.activeOnly = e.target.checked; renderGoat(); });
 
 /* ---------- 1v1 ---------- */
 // Season row extras: [14] FGA [15] FG [16] 3PA [17] 3P [18] FTA [19] FT [20] ORB [21] STL [22] BLK [23] TOV [24] DWS. Player [3] = [height in, weight lb]

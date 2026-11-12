@@ -35,6 +35,8 @@ FILES
 index.html            the app
 players-data.js       every player-season since 1949–50 (from Basketball-Reference.com)
 news.json             the News tab
+goat-live.json        this season's stats for the GOAT 100 tab (updated automatically)
+scripts/              the script that refreshes goat-live.json
 manifest.webmanifest  app name, icon and colors
 sw.js                 offline support
 icons/, photos/       app icon and Wikimedia Commons photos (credits are in the app footer)

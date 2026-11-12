@@ -1,8 +1,8 @@
 // Hardwood Collective offline support.
 // When you change any file, bump VERSION so installed apps pick up the update.
-const VERSION = "hardwood-v2";
+const VERSION = "hardwood-v3";
 const CORE = [
-  "./", "index.html", "players-data.js", "manifest.webmanifest", "news.json",
+  "./", "index.html", "players-data.js", "manifest.webmanifest", "news.json", "goat-live.json",
   "icons/icon-180.png", "icons/icon-192.png", "icons/icon-512.png",
   "photos/lebron.jpg", "photos/curry.jpg", "photos/magic.jpg", "photos/giannis.jpg", "photos/kobe.jpg",
   "photos/jokic.jpg", "photos/durant.jpg", "photos/luka.jpg", "photos/hawks.jpg", "photos/celtics.jpg",
@@ -21,10 +21,12 @@ self.addEventListener("fetch", e => {
   if (req.method !== "GET") return;
   const url = new URL(req.url);
 
-  // News: always try for the latest, fall back to the saved copy offline.
-  if (url.origin === location.origin && url.pathname.endsWith("/news.json")) {
-    e.respondWith(fetch(req).then(res => { const copy = res.clone(); caches.open(VERSION).then(c => c.put("news.json", copy)); return res; })
-      .catch(() => caches.match("news.json")));
+  // News and GOAT stats: always try for the latest, fall back to the saved copy offline.
+  const live = ["/news.json", "/goat-live.json"].find(p => url.pathname.endsWith(p));
+  if (url.origin === location.origin && live) {
+    const key = live.slice(1);
+    e.respondWith(fetch(req).then(res => { const copy = res.clone(); caches.open(VERSION).then(c => c.put(key, copy)); return res; })
+      .catch(() => caches.match(key)));
     return;
   }
 
