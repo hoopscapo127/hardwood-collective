@@ -1,0 +1,18 @@
+{
+  "name": "Hardwood Collective",
+  "short_name": "Hardwood",
+  "description": "Every NBA player since 1949–50, plus Team Builder, HoopWheel, MVP Race, Power Rankings and 1v1.",
+  "id": "./",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#121A33",
+  "theme_color": "#121A33",
+  "categories": ["sports", "entertainment"],
+  "icons": [
+    { "src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}
