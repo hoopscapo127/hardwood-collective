@@ -1,11 +1,11 @@
 // WiseHoops offline support.
 // When you change any file, bump VERSION so installed apps pick up the update.
-const VERSION = "wisehoops-v8";
+const VERSION = "wisehoops-v9";
 const CORE = [
   "./", "index.html", "players-data.js", "manifest.webmanifest", "news.json", "goat-live.json", "standings.json",
   "icons/icon-180.png", "icons/icon-192.png", "icons/icon-512.png",
   "photos/lebron.jpg", "photos/curry.jpg", "photos/magic.jpg", "photos/giannis.jpg", "photos/kobe.jpg",
-  "photos/jokic.jpg", "photos/durant.jpg", "photos/luka.jpg", "photos/hawks.jpg", "photos/celtics.jpg",
+  "photos/jokic.jpg", "photos/durant.jpg", "photos/luka.jpg", "photos/hawks.jpg", "photos/barnes.jpg", "photos/kidd.jpg", "photos/celtics.jpg",
 ];
 
 self.addEventListener("install", e => {

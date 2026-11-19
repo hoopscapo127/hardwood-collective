@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="description" content="WiseHoops: every NBA player since 1949–50, plus Team Builder, HoopWheel, MVP Race, Power Rankings and 1v1.">
 <meta name="theme-color" content="#121A33">
+<script>try{const t=localStorage.getItem("wh-theme");if(t==="dark"||t==="light")document.documentElement.dataset.theme=t;}catch(e){}</script>
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192.png">
 <link rel="apple-touch-icon" href="icons/icon-180.png">
@@ -83,6 +84,14 @@ body[data-arena="garden"] .arena.farm, body:not([data-arena="garden"]) .arena.ga
 :root { --court-veil: .6; }
 @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --court-veil: .52; } }
 :root[data-theme="dark"] { --court-veil: .52; }
+.themebtn { position: fixed; z-index: 40; left: max(16px, env(safe-area-inset-left, 0px)); bottom: calc(16px + env(safe-area-inset-bottom, 0px));
+  width: 64px; height: 64px; padding: 0; border-radius: 50%; border: 3px solid var(--accent); background: var(--surface); overflow: hidden; cursor: pointer;
+  box-shadow: 0 6px 18px rgba(0,0,0,.35); transition: transform .15s ease; }
+.themebtn:hover, .themebtn:focus-visible { transform: scale(1.08); }
+.themebtn img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.themetip { position: fixed; z-index: 40; left: calc(max(16px, env(safe-area-inset-left, 0px)) + 74px); bottom: calc(34px + env(safe-area-inset-bottom, 0px)); font: 600 12px var(--body); color: var(--board-ink); background: var(--board); border-radius: 6px; padding: 4px 8px; opacity: 0; pointer-events: none; transition: opacity .15s; }
+.themebtn:hover + .themetip, .themebtn:focus-visible + .themetip { opacity: 1; }
+@media (prefers-reduced-motion: reduce) { .themebtn { transition: none; } }
 .credits { padding-block: 0 36px; font-size: 12.5px; color: var(--muted); }
 .credits summary { cursor: pointer; }
 .credits ul { margin: 8px 0 0; padding-left: 18px; display: grid; gap: 3px; }
@@ -352,6 +361,7 @@ details.how p { font-size: 13px; color: var(--muted); margin: 8px 0 0; }
 
 
 <div class="courtbg" aria-hidden="true"></div>
+<button class="themebtn" id="themeBtn" type="button"><img id="themeImg" src="photos/barnes.jpg" alt=""></button><span class="themetip" id="themeTip" aria-hidden="true"></span>
 <header class="board">
   <div class="mosaic" aria-hidden="true">
     <img src="photos/lebron.jpg" alt=""><img src="photos/curry.jpg" alt=""><img src="photos/magic.jpg" alt=""><img src="photos/giannis.jpg" alt=""><img src="photos/kobe.jpg" alt=""><img src="photos/jokic.jpg" alt=""><img src="photos/durant.jpg" alt=""><img src="photos/luka.jpg" alt="">
@@ -532,6 +542,8 @@ details.how p { font-size: 13px; color: var(--muted); margin: 8px 0 0; }
 <li>Nikola Jokić: <a href="https://commons.wikimedia.org/wiki/File:Nikola_Jokic_Jump_Shot.jpg" target="_blank" rel="noopener noreferrer">Jose Garcia</a>, CC BY-SA 2.0</li>
 <li>Kevin Durant: <a href="https://commons.wikimedia.org/wiki/File:Kevin_Durant_dunk.jpg" target="_blank" rel="noopener noreferrer">Keith Allison</a>, CC BY-SA 2.0</li>
 <li>Luka Dončić: <a href="https://commons.wikimedia.org/wiki/File:Luka_Doncic_2021_(cropped).jpg" target="_blank" rel="noopener noreferrer">Erik Drost</a>, CC BY 2.0</li>
+<li>Scottie Barnes (light/dark switch): <a href="https://commons.wikimedia.org/wiki/File:Scottie_Barnes.jpg" target="_blank" rel="noopener noreferrer">Eleven Warriors</a>, CC BY-SA 2.0, cropped</li>
+<li>Jason Kidd (light/dark switch): <a href="https://commons.wikimedia.org/wiki/File:Jason_Kidd.jpg" target="_blank" rel="noopener noreferrer">Keith Allison</a>, CC BY-SA 2.0, cropped</li>
 <li>State Farm Arena, Atlanta: <a href="https://commons.wikimedia.org/wiki/File:State_Farm_Arena_-_Bulls_VS_Hawks_NBA_Game.jpg" target="_blank" rel="noopener noreferrer">Bama in ATL</a>, CC BY-SA 4.0</li>
 <li>TD Garden, Boston: <a href="https://commons.wikimedia.org/wiki/File:Celtics_game_versus_the_Timberwolves,_February,_1_2009.jpg" target="_blank" rel="noopener noreferrer">Ktr101</a>, CC BY 3.0</li>
     </ul>
@@ -2153,6 +2165,27 @@ window.addEventListener("beforeinstallprompt", e => { e.preventDefault(); instal
 $("installBtn").addEventListener("click", async () => { if (!installEvt) return; installEvt.prompt(); await installEvt.userChoice; installEvt = null; $("installBtn").hidden = true; });
 window.addEventListener("appinstalled", () => { $("installBtn").hidden = true; });
 if ("serviceWorker" in navigator && location.protocol !== "file:") navigator.serviceWorker.register("sw.js").catch(() => {});
+
+/* ---------- Light / dark switch: Scottie Barnes turns the lights off, Jason Kidd turns them back on ---------- */
+(() => {
+  const btn = document.getElementById("themeBtn"), img = document.getElementById("themeImg"), tip = document.getElementById("themeTip");
+  const mq = matchMedia("(prefers-color-scheme: dark)");
+  const current = () => document.documentElement.dataset.theme || (mq.matches ? "dark" : "light");
+  const paint = () => {
+    const dark = current() === "dark";
+    img.src = dark ? "photos/kidd.jpg" : "photos/barnes.jpg";
+    const label = dark ? "Jason Kidd: switch to light mode" : "Scottie Barnes: switch to dark mode";
+    btn.setAttribute("aria-label", label); btn.title = label; tip.textContent = label;
+  };
+  btn.addEventListener("click", () => {
+    const next = current() === "dark" ? "light" : "dark";
+    document.documentElement.dataset.theme = next;
+    try { localStorage.setItem("wh-theme", next); } catch (e) {}
+    paint();
+  });
+  mq.addEventListener?.("change", paint);
+  paint();
+})();
 </script>
 
 </body>
