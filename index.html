@@ -1358,8 +1358,19 @@ $("tab-mvp").onclick = () => setView("mvp");
 
 /* ---------- Power Rankings ---------- */
 // Basketball-Reference team ratings through games of Nov 11, 2026: [code, name, W, L, MOV, SRS, net rating]
-const STANDINGS = [["BOS","Boston Celtics",9,2,11.73,2.87,12.2],["SAS","San Antonio Spurs",9,2,11.73,15.5,11.7],["MIN","Minnesota Timberwolves",8,3,11.09,11.53,11.0],["HOU","Houston Rockets",8,3,9.09,13.11,9.4],["GSW","Golden State Warriors",8,3,9.18,12.52,9.2],["NYK","New York Knicks",6,4,8.3,0.07,8.7],["DET","Detroit Pistons",7,3,8.1,2.42,8.3],["LAL","Los Angeles Lakers",10,2,7.67,10.51,7.7],["POR","Portland Trail Blazers",7,3,7.0,12.39,7.0],["MEM","Memphis Grizzlies",7,3,7.1,7.39,7.0],["OKC","Oklahoma City Thunder",8,3,5.45,9.78,5.6],["DAL","Dallas Mavericks",7,4,4.64,7.08,4.6],["TOR","Toronto Raptors",5,5,3.3,0.57,3.3],["ATL","Atlanta Hawks",7,5,2.08,-0.91,2.0],["CLE","Cleveland Cavaliers",5,6,1.55,-1.76,1.6],["PHI","Philadelphia 76ers",9,3,1.0,-5.23,1.0],["DEN","Denver Nuggets",5,4,0.78,5.07,0.8],["IND","Indiana Pacers",3,8,-3.82,-6.33,-3.8],["MIA","Miami Heat",5,6,-4.27,-3.56,-4.1],["NOP","New Orleans Pelicans",4,7,-4.91,-3.33,-4.7],["PHO","Phoenix Suns",4,6,-5.3,3.24,-5.4],["WAS","Washington Wizards",4,7,-5.27,-11.27,-5.4],["LAC","Los Angeles Clippers",2,8,-5.9,-1.44,-5.9],["ORL","Orlando Magic",3,7,-7.6,-6.4,-7.7],["BRK","Brooklyn Nets",2,8,-9.0,-12.53,-9.0],["UTA","Utah Jazz",1,10,-11.18,-4.18,-11.0],["CHO","Charlotte Hornets",4,7,-11.55,-16.21,-12.1],["SAC","Sacramento Kings",1,10,-12.73,-7.18,-12.6],["MIL","Milwaukee Bucks",1,10,-14.91,-16.16,-15.1],["CHI","Chicago Bulls",1,8,-16.67,-20.16,-16.0]];
-const PR_ASOF = "November 11, 2026";
+let STANDINGS = [["BOS","Boston Celtics",9,2,11.73,2.87,12.2],["SAS","San Antonio Spurs",9,2,11.73,15.5,11.7],["MIN","Minnesota Timberwolves",8,3,11.09,11.53,11.0],["HOU","Houston Rockets",8,3,9.09,13.11,9.4],["GSW","Golden State Warriors",8,3,9.18,12.52,9.2],["NYK","New York Knicks",6,4,8.3,0.07,8.7],["DET","Detroit Pistons",7,3,8.1,2.42,8.3],["LAL","Los Angeles Lakers",10,2,7.67,10.51,7.7],["POR","Portland Trail Blazers",7,3,7.0,12.39,7.0],["MEM","Memphis Grizzlies",7,3,7.1,7.39,7.0],["OKC","Oklahoma City Thunder",8,3,5.45,9.78,5.6],["DAL","Dallas Mavericks",7,4,4.64,7.08,4.6],["TOR","Toronto Raptors",5,5,3.3,0.57,3.3],["ATL","Atlanta Hawks",7,5,2.08,-0.91,2.0],["CLE","Cleveland Cavaliers",5,6,1.55,-1.76,1.6],["PHI","Philadelphia 76ers",9,3,1.0,-5.23,1.0],["DEN","Denver Nuggets",5,4,0.78,5.07,0.8],["IND","Indiana Pacers",3,8,-3.82,-6.33,-3.8],["MIA","Miami Heat",5,6,-4.27,-3.56,-4.1],["NOP","New Orleans Pelicans",4,7,-4.91,-3.33,-4.7],["PHO","Phoenix Suns",4,6,-5.3,3.24,-5.4],["WAS","Washington Wizards",4,7,-5.27,-11.27,-5.4],["LAC","Los Angeles Clippers",2,8,-5.9,-1.44,-5.9],["ORL","Orlando Magic",3,7,-7.6,-6.4,-7.7],["BRK","Brooklyn Nets",2,8,-9.0,-12.53,-9.0],["UTA","Utah Jazz",1,10,-11.18,-4.18,-11.0],["CHO","Charlotte Hornets",4,7,-11.55,-16.21,-12.1],["SAC","Sacramento Kings",1,10,-12.73,-7.18,-12.6],["MIL","Milwaukee Bucks",1,10,-14.91,-16.16,-15.1],["CHI","Chicago Bulls",1,8,-16.67,-20.16,-16.0]];
+let PR_ASOF = "November 11, 2026";
+// Fresh records come from standings.json, which the daily agent updates. The list above is the fallback.
+(async () => {
+  try {
+    const r = await fetch("standings.json", { cache: "no-cache" });
+    if (!r.ok) return;
+    const j = await r.json();
+    if (!Array.isArray(j.teams) || j.teams.length !== 30) return;
+    STANDINGS = j.teams; PR_ASOF = j.asof || PR_ASOF; POWER = null;
+    if (!$("powerView").hidden) renderPower();
+  } catch (e) { /* offline: keep the built-in records */ }
+})();
 const BBR_TO_NOW = { BRK: "BKN", CHO: "CHA", PHO: "PHX" };
 let POWER = null;
 
@@ -1437,7 +1448,7 @@ function renderPower() {
   $("prIntro").innerHTML = `<div class="lbl">Championship forecast</div><h3>${esc(top.name)} lead the field</h3>
     <p>The ${esc(top.name)} win the title in ${prPct(top.title)} of 10,000 simulated seasons. They're ${top.w}–${top.l} with a ${top.net >= 0 ? "+" : ""}${top.net.toFixed(1)} net rating, and their roster grades out ${top.talent >= 0 ? "+" : ""}${top.talent.toFixed(1)} points per game better than an average team.
     ${fav.length > 1 ? `${fav.slice(1).map((x, i) => `${i ? "the" : "The"} ${esc(x.name)} (${prPct(x.title)})`).join(", ")} ${fav.length > 2 ? "are also title favorites" : "are the only other title favorite"}, with at least a 10% chance.` : "No other team reaches 10%, so this is a wide-open race behind them."}</p>
-    <p class="msg">Ten games is a small sample, so each team's rating leans on its roster's track record and will lean more on results as the season goes on.</p>`;
+    <p class="msg">${(() => { const g = Math.round(t.reduce((a, x) => a + x.g, 0) / t.length); return g < 41 ? `About ${g} games in, each team\'s rating still leans partly on its roster\'s track record and will lean more on results as the season goes on.` : `Past the halfway mark, each team\'s rating is driven mostly by its results.`; })()}</p>`;
   $("prTop").innerHTML = `<div class="top"><div class="lbl" style="color:#A9B1C7">Title odds, top five</div><div class="record" style="font-size:52px">${prPct(top.title)}</div><span class="tier">${esc(top.name)}</span></div>
     <div class="body"><div class="contrib">${t.slice(0, 5).map(x => `<div class="bar"><span><span class="sw" style="background:${x.color}"></span>${esc(x.now)}</span><div class="track"><div class="fill" style="width:${(x.title / maxT * 100).toFixed(1)}%"></div></div><span>${prPct(x.title)}</span></div>`).join("")}</div>
     <details class="how"><summary>How the forecast works</summary>
