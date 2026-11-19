@@ -1,6 +1,6 @@
 // WiseHoops offline support.
 // When you change any file, bump VERSION so installed apps pick up the update.
-const VERSION = "wisehoops-v6";
+const VERSION = "wisehoops-v7";
 const CORE = [
   "./", "index.html", "players-data.js", "manifest.webmanifest", "news.json", "goat-live.json", "standings.json",
   "icons/icon-180.png", "icons/icon-192.png", "icons/icon-512.png",
