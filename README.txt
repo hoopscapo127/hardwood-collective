@@ -2,7 +2,7 @@ WISEHOOPS — HOME-SCREEN APP
 ===========================
 
 WHERE IT LIVES
-The live site is https://hardwoodcollectiv.netlify.app
+The live site is https://wisehoops.netlify.app
 It is published from the GitHub repository hoopscapo127/hardwood-collective.
 Netlify republishes automatically whenever a file there changes.
 Do NOT drag this folder onto Netlify: that would replace the stories and
@@ -32,6 +32,8 @@ index.html            the app
 players-data.js       every player-season since 1949–50 (from Basketball-Reference.com)
 news.json             the News tab (updated automatically)
 goat-live.json        this season's stats for the GOAT 100 tab (updated automatically)
+standings.json        team records for the Power Rankings tab (scripts/update_standings.py)
+awards.json           award odds for the Awards tab (scripts/update_awards.py)
 scripts/              the script that refreshes goat-live.json
 manifest.webmanifest  app name, icon and colors
 sw.js                 offline support

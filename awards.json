@@ -1,0 +1,448 @@
+{
+ "season": 2027,
+ "asof": "November 18, 2026",
+ "updated": "2026-11-19",
+ "games": 14.8,
+ "awards": [
+  {
+   "key": "mvp",
+   "name": "Most Valuable Player",
+   "trophy": "Michael Jordan Trophy",
+   "method": "Blends Box Plus/Minus, win shares per 48 minutes, scoring and team winning percentage, the things MVP voters have historically rewarded. Players must have played at least 60% of their team's games and 28 minutes a night.",
+   "top": [
+    {
+     "id": "wembavi01",
+     "name": "Victor Wembanyama",
+     "team": "SAS",
+     "pct": 51.5,
+     "line": "28.4 / 12.0 / 3.3 · +15.9 BPM",
+     "why": "Victor Wembanyama is averaging 28.4 points, 12.0 rebounds and 3.3 assists for the San Antonio Spurs, who are 12–3 (3rd-best record in the league). He leads the league in Box Plus/Minus and win shares and ranks 3rd in scoring. That mix of individual production and team success makes him the front-runner."
+    },
+    {
+     "id": "doncilu01",
+     "name": "Luka Dončić",
+     "team": "LAL",
+     "pct": 9.8,
+     "line": "38.1 / 7.0 / 7.6 · +8.9 BPM",
+     "why": "Luka Dončić is averaging 38.1 points, 7.0 rebounds and 7.6 assists for the Los Angeles Lakers, who are 13–3 (the league's best record). He leads the league in scoring and ranks 3rd in Box Plus/Minus."
+    },
+    {
+     "id": "sengual01",
+     "name": "Alperen Şengün",
+     "team": "HOU",
+     "pct": 4.2,
+     "line": "21.6 / 9.1 / 6.8 · +8.2 BPM",
+     "why": "Alperen Şengün is averaging 21.6 points, 9.1 rebounds and 6.8 assists for the Houston Rockets, who are 12–4 (4th-best record in the league). He ranks 5th in win shares."
+    },
+    {
+     "id": "antetgi01",
+     "name": "Giannis Antetokounmpo",
+     "team": "MIA",
+     "pct": 3.1,
+     "line": "28.2 / 12.6 / 5.5 · +8.7 BPM",
+     "why": "Giannis Antetokounmpo is averaging 28.2 points, 12.6 rebounds and 5.5 assists for the Miami Heat, who are 9–6 (13th-best record in the league). He ranks 4th in Box Plus/Minus and ranks 3rd in win shares."
+    },
+    {
+     "id": "maxeyty01",
+     "name": "Tyrese Maxey",
+     "team": "PHI",
+     "pct": 2.6,
+     "line": "26.5 / 3.3 / 5.8 · +5.4 BPM",
+     "why": "Tyrese Maxey is averaging 26.5 points, 3.3 rebounds and 5.8 assists for the Philadelphia 76ers, who are 13–3 (2nd-best record in the league). He ranks 4th in win shares."
+    },
+    {
+     "id": "jokicni01",
+     "name": "Nikola Jokić",
+     "team": "DEN",
+     "pct": 2.5,
+     "line": "24.1 / 10.7 / 8.9 · +8.7 BPM",
+     "why": "Nikola Jokić is averaging 24.1 points, 10.7 rebounds and 8.9 assists for the Denver Nuggets, who are 8–5 (10th-best record in the league). He ranks 5th in Box Plus/Minus and ranks 4th in VORP."
+    },
+    {
+     "id": "tatumja01",
+     "name": "Jayson Tatum",
+     "team": "BOS",
+     "pct": 2.3,
+     "line": "26.4 / 6.6 / 6.8 · +6.0 BPM",
+     "why": "Jayson Tatum is averaging 26.4 points, 6.6 rebounds and 6.8 assists for the Boston Celtics, who are 11–4 (5th-best record in the league). He posts a +6.0 BPM and 2.0 win shares."
+    },
+    {
+     "id": "gilgesh01",
+     "name": "Shai Gilgeous-Alexander",
+     "team": "OKC",
+     "pct": 2.2,
+     "line": "31.1 / 4.1 / 4.3 · +7.7 BPM",
+     "why": "Shai Gilgeous-Alexander is averaging 31.1 points, 4.1 rebounds and 4.3 assists for the Oklahoma City Thunder, who are 9–6 (11th-best record in the league). He ranks 5th in VORP and ranks 2nd in scoring."
+    },
+    {
+     "id": "cunnica01",
+     "name": "Cade Cunningham",
+     "team": "DET",
+     "pct": 2.1,
+     "line": "25.8 / 5.2 / 7.8 · +6.2 BPM",
+     "why": "Cade Cunningham is averaging 25.8 points, 5.2 rebounds and 7.8 assists for the Detroit Pistons, who are 10–4 (8th-best record in the league). He posts a +6.2 BPM and 1.9 win shares."
+    },
+    {
+     "id": "townska01",
+     "name": "Karl-Anthony Towns",
+     "team": "NYK",
+     "pct": 1.6,
+     "line": "21.2 / 14.1 / 3.9 · +7.0 BPM",
+     "why": "Karl-Anthony Towns is averaging 21.2 points, 14.1 rebounds and 3.9 assists for the New York Knicks, who are 8–6 (14th-best record in the league). He leads the league in rebounding."
+    }
+   ]
+  },
+  {
+   "key": "dpoy",
+   "name": "Defensive Player of the Year",
+   "trophy": "Hakeem Olajuwon Trophy",
+   "method": "Combines Defensive Box Plus/Minus, defensive win shares per 48 minutes, blocks, steals and how good the player's team defense is. Players must have played at least 60% of their team's games and 24 minutes a night.",
+   "top": [
+    {
+     "id": "wembavi01",
+     "name": "Victor Wembanyama",
+     "team": "SAS",
+     "pct": 74.5,
+     "line": "4.1 BLK · 1.1 STL · +5.0 DBPM",
+     "why": "Victor Wembanyama averages 4.1 blocks and 1.1 steals with a +5.0 Defensive BPM. He leads the league in Defensive Box Plus/Minus and defensive win shares. The San Antonio Spurs allow 107.6 points per 100 possessions, 2nd in the league."
+    },
+    {
+     "id": "clingdo01",
+     "name": "Donovan Clingan",
+     "team": "POR",
+     "pct": 2.4,
+     "line": "2.3 BLK · 0.6 STL · +2.3 DBPM",
+     "why": "Donovan Clingan averages 2.3 blocks and 0.6 steals with a +2.3 Defensive BPM. He ranks 2nd in blocks. The Portland Trail Blazers allow 111.4 points per 100 possessions, 7th in the league."
+    },
+    {
+     "id": "thompau01",
+     "name": "Ausar Thompson",
+     "team": "DET",
+     "pct": 2.1,
+     "line": "0.8 BLK · 1.7 STL · +3.3 DBPM",
+     "why": "Ausar Thompson averages 0.8 blocks and 1.7 steals with a +3.3 Defensive BPM. He ranks 2nd in Defensive Box Plus/Minus. The Detroit Pistons allow 110.0 points per 100 possessions, 6th in the league."
+    },
+    {
+     "id": "daniedy01",
+     "name": "Dyson Daniels",
+     "team": "ATL",
+     "pct": 1.7,
+     "line": "0.3 BLK · 2.8 STL · +3.2 DBPM",
+     "why": "Dyson Daniels averages 0.3 blocks and 2.8 steals with a +3.2 Defensive BPM. He leads the league in steals and ranks 3rd in Defensive Box Plus/Minus. The Atlanta Hawks allow 111.8 points per 100 possessions, 8th in the league."
+    },
+    {
+     "id": "mcdanja02",
+     "name": "Jaden McDaniels",
+     "team": "MIN",
+     "pct": 1.4,
+     "line": "0.9 BLK · 1.1 STL · +2.5 DBPM",
+     "why": "Jaden McDaniels averages 0.9 blocks and 1.1 steals with a +2.5 Defensive BPM. He ranks 3rd in defensive win shares. The Minnesota Timberwolves allow 104.7 points per 100 possessions, 1st in the league."
+    },
+    {
+     "id": "harteis01",
+     "name": "Isaiah Hartenstein",
+     "team": "OKC",
+     "pct": 1.3,
+     "line": "0.3 BLK · 1.0 STL · +3.0 DBPM",
+     "why": "Isaiah Hartenstein averages 0.3 blocks and 1.0 steals with a +3.0 Defensive BPM. The Oklahoma City Thunder allow 108.9 points per 100 possessions, 4th in the league."
+    },
+    {
+     "id": "jokicni01",
+     "name": "Nikola Jokić",
+     "team": "DEN",
+     "pct": 1.3,
+     "line": "1.1 BLK · 1.7 STL · +3.0 DBPM",
+     "why": "Nikola Jokić averages 1.1 blocks and 1.7 steals with a +3.0 Defensive BPM. He ranks 5th in Defensive Box Plus/Minus. The Denver Nuggets allow 115.1 points per 100 possessions, 18th in the league."
+    },
+    {
+     "id": "hartjo01",
+     "name": "Josh Hart",
+     "team": "NYK",
+     "pct": 1.3,
+     "line": "0.3 BLK · 1.6 STL · +3.1 DBPM",
+     "why": "Josh Hart averages 0.3 blocks and 1.6 steals with a +3.1 Defensive BPM. He ranks 4th in Defensive Box Plus/Minus. The New York Knicks allow 109.2 points per 100 possessions, 5th in the league. He has missed 3 of his team's 14 games, and the 65-game minimum for awards could become a problem."
+    },
+    {
+     "id": "georgpa01",
+     "name": "Paul George",
+     "team": "BOS",
+     "pct": 1.2,
+     "line": "0.4 BLK · 2.1 STL · +2.2 DBPM",
+     "why": "Paul George averages 0.4 blocks and 2.1 steals with a +2.2 Defensive BPM. He ranks 4th in defensive win shares and ranks 5th in steals. The Boston Celtics allow 107.9 points per 100 possessions, 3rd in the league."
+    },
+    {
+     "id": "thybuma01",
+     "name": "Matisse Thybulle",
+     "team": "LAL",
+     "pct": 1.1,
+     "line": "0.9 BLK · 2.4 STL · +2.9 DBPM",
+     "why": "Matisse Thybulle averages 0.9 blocks and 2.4 steals with a +2.9 Defensive BPM. He ranks 2nd in steals. The Los Angeles Lakers allow 114.3 points per 100 possessions, 14th in the league."
+    }
+   ]
+  },
+  {
+   "key": "roy",
+   "name": "Rookie of the Year",
+   "trophy": "Wilt Chamberlain Trophy",
+   "method": "Weighs scoring, rebounds, assists, stocks (steals + blocks), Box Plus/Minus and role size among first-year players who have appeared in at least half their team's games.",
+   "top": [
+    {
+     "id": "acuffda01",
+     "name": "Darius Acuff Jr.",
+     "team": "SAC",
+     "pct": 27.6,
+     "line": "26.2 / 3.6 / 7.0 · 37 MPG",
+     "why": "Darius Acuff Jr. is averaging 26.2 points, 3.6 rebounds and 7.0 assists in 36.7 minutes. He leads all rookies in scoring. He's the rookie to beat right now."
+    },
+    {
+     "id": "lendeya01",
+     "name": "Yaxel Lendeborg",
+     "team": "GSW",
+     "pct": 18.4,
+     "line": "20.3 / 7.3 / 3.5 · 32 MPG",
+     "why": "Yaxel Lendeborg is averaging 20.3 points, 7.3 rebounds and 3.5 assists in 31.6 minutes. He's 2nd among rookies in scoring. He's also been a positive on the floor (+0.7 BPM), which is rare for a first-year player."
+    },
+    {
+     "id": "boozeca02",
+     "name": "Cameron Boozer",
+     "team": "MEM",
+     "pct": 16.8,
+     "line": "16.6 / 9.4 / 5.3 · 31 MPG",
+     "why": "Cameron Boozer is averaging 16.6 points, 9.4 rebounds and 5.3 assists in 31.1 minutes. He's also been a positive on the floor (+1.4 BPM), which is rare for a first-year player."
+    },
+    {
+     "id": "wilsoca01",
+     "name": "Caleb Wilson",
+     "team": "CHI",
+     "pct": 9.7,
+     "line": "18.9 / 6.2 / 1.9 · 31 MPG",
+     "why": "Caleb Wilson is averaging 18.9 points, 6.2 rebounds and 1.9 assists in 30.8 minutes. He's 3rd among rookies in scoring."
+    },
+    {
+     "id": "peterda02",
+     "name": "Darryn Peterson",
+     "team": "UTA",
+     "pct": 6.4,
+     "line": "16.5 / 4.1 / 3.6 · 31 MPG",
+     "why": "Darryn Peterson is averaging 16.5 points, 4.1 rebounds and 3.6 assists in 30.6 minutes."
+    },
+    {
+     "id": "dybanaj01",
+     "name": "AJ Dybantsa",
+     "team": "WAS",
+     "pct": 4.4,
+     "line": "16.3 / 6.6 / 2.3 · 34 MPG",
+     "why": "AJ Dybantsa is averaging 16.3 points, 6.6 rebounds and 2.3 assists in 33.8 minutes. His efficiency (-4.9 BPM) lags behind his counting stats."
+    },
+    {
+     "id": "thomame01",
+     "name": "Meleek Thomas",
+     "team": "CLE",
+     "pct": 3.0,
+     "line": "13.4 / 2.8 / 1.6 · 24 MPG",
+     "why": "Meleek Thomas is averaging 13.4 points, 2.8 rebounds and 1.6 assists in 23.8 minutes."
+    },
+    {
+     "id": "maraad01",
+     "name": "Aday Mara",
+     "team": "OKC",
+     "pct": 2.5,
+     "line": "9.2 / 6.5 / 1.9 · 22 MPG",
+     "why": "Aday Mara is averaging 9.2 points, 6.5 rebounds and 1.9 assists in 21.9 minutes. He's also been a positive on the floor (+0.4 BPM), which is rare for a first-year player."
+    },
+    {
+     "id": "wagleke01",
+     "name": "Keaton Wagler",
+     "team": "LAC",
+     "pct": 2.4,
+     "line": "12.5 / 3.3 / 3.1 · 23 MPG",
+     "why": "Keaton Wagler is averaging 12.5 points, 3.3 rebounds and 3.1 assists in 22.8 minutes."
+    },
+    {
+     "id": "burribr01",
+     "name": "Brayden Burries",
+     "team": "MIL",
+     "pct": 1.4,
+     "line": "10.1 / 5.5 / 2.3 · 22 MPG",
+     "why": "Brayden Burries is averaging 10.1 points, 5.5 rebounds and 2.3 assists in 22.1 minutes."
+    }
+   ]
+  },
+  {
+   "key": "smoy",
+   "name": "Sixth Man of the Year",
+   "trophy": "John Havlicek Trophy",
+   "method": "Players who have started no more than about a third of their games. Ranks them on scoring, Box Plus/Minus, rebounds plus assists and team record.",
+   "top": [
+    {
+     "id": "spencca01",
+     "name": "Cam Spencer",
+     "team": "MEM",
+     "pct": 11.2,
+     "line": "11.4 PTS · +5.9 BPM · 4/15 starts",
+     "why": "Cam Spencer has come off the bench in 11 of 15 games, averaging 11.4 points in 22.2 minutes. He's posting a +5.9 BPM for the Memphis Grizzlies, who are 11–4. If he moves into the starting lineup, he'll drop out of the running."
+    },
+    {
+     "id": "holidjr01",
+     "name": "Jrue Holiday",
+     "team": "POR",
+     "pct": 10.2,
+     "line": "13.3 PTS · +4.4 BPM · 0/14 starts",
+     "why": "Jrue Holiday has come off the bench in 14 of 14 games, averaging 13.3 points in 26.5 minutes. He's posting a +4.4 BPM for the Portland Trail Blazers, who are 9–5."
+    },
+    {
+     "id": "shannte01",
+     "name": "Terrence Shannon Jr.",
+     "team": "MIN",
+     "pct": 6.3,
+     "line": "12.9 PTS · +2.1 BPM · 0/12 starts",
+     "why": "Terrence Shannon Jr. has come off the bench in 12 of 12 games, averaging 12.9 points in 22.9 minutes. He's posting a +2.1 BPM for the Minnesota Timberwolves, who are 11–4."
+    },
+    {
+     "id": "beysa01",
+     "name": "Saddiq Bey",
+     "team": "NOP",
+     "pct": 5.9,
+     "line": "16.5 PTS · +0.7 BPM · 5/16 starts",
+     "why": "Saddiq Bey has come off the bench in 11 of 16 games, averaging 16.5 points in 29.5 minutes. No reserve scores more. He's posting a +0.7 BPM for the New Orleans Pelicans, who are 5–11. If he moves into the starting lineup, he'll drop out of the running."
+    },
+    {
+     "id": "pritcpa01",
+     "name": "Payton Pritchard",
+     "team": "BOS",
+     "pct": 5.5,
+     "line": "13.7 PTS · +0.3 BPM · 0/15 starts",
+     "why": "Payton Pritchard has come off the bench in 15 of 15 games, averaging 13.7 points in 27.3 minutes. He's posting a +0.3 BPM for the Boston Celtics, who are 11–4."
+    },
+    {
+     "id": "allengr01",
+     "name": "Grayson Allen",
+     "team": "CHO",
+     "pct": 5.4,
+     "line": "14.9 PTS · +2.2 BPM · 3/13 starts",
+     "why": "Grayson Allen has come off the bench in 10 of 13 games, averaging 14.9 points in 27.1 minutes. He's the 2nd-highest-scoring reserve in the league. He's posting a +2.2 BPM for the Charlotte Hornets, who are 4–10. If he moves into the starting lineup, he'll drop out of the running."
+    },
+    {
+     "id": "wiggiaa01",
+     "name": "Aaron Wiggins",
+     "team": "ATL",
+     "pct": 4.0,
+     "line": "13.9 PTS · -0.4 BPM · 1/15 starts",
+     "why": "Aaron Wiggins has come off the bench in 14 of 15 games, averaging 13.9 points in 25.7 minutes. He's posting a -0.4 BPM for the Atlanta Hawks, who are 9–6."
+    },
+    {
+     "id": "bambamo01",
+     "name": "Mo Bamba",
+     "team": "UTA",
+     "pct": 3.8,
+     "line": "9.5 PTS · +5.7 BPM · 3/12 starts",
+     "why": "Mo Bamba has come off the bench in 9 of 12 games, averaging 9.5 points in 20.7 minutes. He's posting a +5.7 BPM for the Utah Jazz, who are 3–13. If he moves into the starting lineup, he'll drop out of the running."
+    },
+    {
+     "id": "williro04",
+     "name": "Robert Williams",
+     "team": "POR",
+     "pct": 3.6,
+     "line": "6.5 PTS · +5.5 BPM · 0/12 starts",
+     "why": "Robert Williams has come off the bench in 12 of 12 games, averaging 6.5 points in 16.3 minutes. He's posting a +5.5 BPM for the Portland Trail Blazers, who are 9–5."
+    },
+    {
+     "id": "goodwjo01",
+     "name": "Jordan Goodwin",
+     "team": "PHO",
+     "pct": 3.6,
+     "line": "9.0 PTS · +4.2 BPM · 0/10 starts",
+     "why": "Jordan Goodwin has come off the bench in 10 of 10 games, averaging 9.0 points in 19.9 minutes. He's posting a +4.2 BPM for the Phoenix Suns, who are 7–7."
+    }
+   ]
+  },
+  {
+   "key": "mip",
+   "name": "Most Improved Player",
+   "trophy": "George Mikan Trophy",
+   "method": "Compares each player's points, rebounds, assists, steals and blocks per game with last season (at least 20 games then), with credit for a bigger role and a small penalty for players who were already stars.",
+   "top": [
+    {
+     "id": "shannte01",
+     "name": "Terrence Shannon Jr.",
+     "team": "MIN",
+     "pct": 13.3,
+     "line": "+7.3 PTS · 5.6 → 12.9",
+     "why": "Terrence Shannon Jr. has gone from 5.6 points, 1.1 rebounds and 0.9 assists last season to 12.9 / 3.3 / 2.9. A bigger role (12 → 23 minutes) explains part of the jump."
+    },
+    {
+     "id": "mitchda01",
+     "name": "Davion Mitchell",
+     "team": "MIA",
+     "pct": 13.2,
+     "line": "+7.9 PTS · 9.3 → 17.2",
+     "why": "Davion Mitchell has gone from 9.3 points, 2.7 rebounds and 6.5 assists last season to 17.2 / 2.4 / 9.0. A bigger role (29 → 36 minutes) explains part of the jump."
+    },
+    {
+     "id": "harpedy01",
+     "name": "Dylan Harper",
+     "team": "SAS",
+     "pct": 7.5,
+     "line": "+6.6 PTS · 11.8 → 18.4",
+     "why": "Dylan Harper has gone from 11.8 points, 3.4 rebounds and 3.9 assists last season to 18.4 / 5.4 / 4.5. A bigger role (23 → 32 minutes) explains part of the jump."
+    },
+    {
+     "id": "wagnefr01",
+     "name": "Franz Wagner",
+     "team": "ORL",
+     "pct": 6.5,
+     "line": "+3.8 PTS · 20.6 → 24.4",
+     "why": "Franz Wagner has gone from 20.6 points, 5.2 rebounds and 3.3 assists last season to 24.4 / 6.9 / 8.5. A bigger role (30 → 37 minutes) explains part of the jump. Voters tend to favor breakouts over players who were already stars."
+    },
+    {
+     "id": "reedpa01",
+     "name": "Paul Reed",
+     "team": "DET",
+     "pct": 4.6,
+     "line": "+3.8 PTS · 7.8 → 11.6",
+     "why": "Paul Reed has gone from 7.8 points, 4.5 rebounds and 1.2 assists last season to 11.6 / 7.6 / 2.2. A bigger role (14 → 26 minutes) explains part of the jump."
+    },
+    {
+     "id": "mccaija01",
+     "name": "Jared McCain",
+     "team": "OKC",
+     "pct": 4.6,
+     "line": "+5.4 PTS · 8.3 → 13.7",
+     "why": "Jared McCain has gone from 8.3 points, 2.0 rebounds and 1.3 assists last season to 13.7 / 3.4 / 1.8. A bigger role (17 → 27 minutes) explains part of the jump."
+    },
+    {
+     "id": "proctty01",
+     "name": "Tyrese Proctor",
+     "team": "CLE",
+     "pct": 4.5,
+     "line": "+4.3 PTS · 5.4 → 9.7",
+     "why": "Tyrese Proctor has gone from 5.4 points, 1.3 rebounds and 1.5 assists last season to 9.7 / 3.3 / 2.7. A bigger role (11 → 20 minutes) explains part of the jump."
+    },
+    {
+     "id": "walteja01",
+     "name": "Ja'Kobe Walter",
+     "team": "TOR",
+     "pct": 4.4,
+     "line": "+4.7 PTS · 7.5 → 12.2",
+     "why": "Ja'Kobe Walter has gone from 7.5 points, 2.6 rebounds and 1.2 assists last season to 12.2 / 4.0 / 2.1. A bigger role (20 → 31 minutes) explains part of the jump."
+    },
+    {
+     "id": "jenkida01",
+     "name": "Daniss Jenkins",
+     "team": "DET",
+     "pct": 4.3,
+     "line": "+5.0 PTS · 9.3 → 14.3",
+     "why": "Daniss Jenkins has gone from 9.3 points, 2.3 rebounds and 3.9 assists last season to 14.3 / 3.7 / 4.7. A bigger role (20 → 29 minutes) explains part of the jump."
+    },
+    {
+     "id": "lopezbr01",
+     "name": "Brook Lopez",
+     "team": "LAC",
+     "pct": 4.3,
+     "line": "+6.3 PTS · 8.5 → 14.8",
+     "why": "Brook Lopez has gone from 8.5 points, 3.6 rebounds and 1.3 assists last season to 14.8 / 5.4 / 1.8. His minutes are about the same (22 → 24), so the improvement is real efficiency and skill."
+    }
+   ]
+  }
+ ]
+}

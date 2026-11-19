@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="description" content="WiseHoops: every NBA player since 1949–50, plus Team Builder, HoopWheel, MVP Race, Power Rankings and 1v1.">
+<meta name="description" content="WiseHoops: every NBA player since 1949–50, plus Team Builder, HoopWheel, MVP Race, Power Rankings, Awards and 1v1.">
 <meta name="theme-color" content="#121A33">
 <script>try{const t=localStorage.getItem("wh-theme");if(t==="dark"||t==="light")document.documentElement.dataset.theme=t;}catch(e){}</script>
 <link rel="manifest" href="manifest.webmanifest">
@@ -320,6 +320,26 @@ tbody tr:last-child td { border-bottom: 0; }
 .pr .keys { color: var(--muted); font-size: 13px; white-space: normal; min-width: 180px; }
 
 /* GOAT 100 */
+.awchips { display: flex; flex-wrap: wrap; gap: 8px; }
+.awchip { font: 600 14px/1.25 var(--body); padding: 8px 14px; border-radius: 10px; border: 1px solid var(--line); background: var(--surface); color: var(--ink); cursor: pointer; text-align: left; }
+.awchip small { display: block; font-weight: 500; color: var(--muted); font-size: 12px; }
+.awchip[aria-selected="true"] { background: var(--accent); border-color: var(--accent); color: #fff; }
+.awchip[aria-selected="true"] small { color: #fff; opacity: .85; }
+.awlist { list-style: none; margin: 0; padding: 0; }
+.awlist li { display: grid; grid-template-columns: 40px 1fr minmax(110px, 190px); gap: 2px 14px; padding: 14px 16px; border-top: 1px solid var(--line); align-items: start; }
+.awlist li:first-child { border-top: 0; }
+.awrk { font: 700 26px/1 var(--display); color: var(--muted); }
+.awlist li.lead .awrk { color: var(--accent); }
+.awname { font-weight: 700; font-size: 16px; }
+.awname .sw { display: inline-block; width: 10px; height: 10px; border-radius: 2px; margin-right: 6px; vertical-align: 1px; }
+.awname .sub { font-weight: 500; color: var(--muted); font-size: 13px; }
+.awline { font-size: 13px; color: var(--muted); font-variant-numeric: tabular-nums; margin-top: 2px; }
+.awwhy { font-size: 14px; line-height: 1.45; margin-top: 6px; grid-column: 2 / 4; }
+.awodds { text-align: right; }
+.awodds b { font: 700 24px/1 var(--display); color: var(--accent); font-variant-numeric: tabular-nums; }
+.awodds .track { height: 8px; background: var(--bg); border-radius: 4px; overflow: hidden; margin-top: 6px; }
+.awodds .fill { height: 100%; background: var(--accent); border-radius: 4px; }
+@media (max-width: 600px) { .awlist li { grid-template-columns: 30px 1fr 74px; } .awwhy { grid-column: 1 / 4; } .awodds b { font-size: 20px; } }
 .goattools { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; padding: 0 16px 12px; }
 .goattools input[type=search] { flex: 1 1 220px; max-width: 320px; }
 .goattools label { display: inline-flex; gap: 6px; align-items: center; font-size: 13px; color: var(--muted); cursor: pointer; }
@@ -391,6 +411,7 @@ details.how p { font-size: 13px; color: var(--muted); margin: 8px 0 0; }
       <button class="tab" role="tab" id="tab-wheel" aria-selected="false">HoopWheel</button>
       <button class="tab" role="tab" id="tab-mvp" aria-selected="false">MVP Race</button>
       <button class="tab" role="tab" id="tab-power" aria-selected="false">Power Rankings</button>
+      <button class="tab" role="tab" id="tab-awards" aria-selected="false">Awards</button>
       <button class="tab" role="tab" id="tab-goat" aria-selected="false">GOAT 100</button>
       <button class="tab" role="tab" id="tab-ovo" aria-selected="false">1v1</button>
     </div>
@@ -490,6 +511,16 @@ details.how p { font-size: 13px; color: var(--muted); margin: 8px 0 0; }
         <div class="tablebox" style="border:0;border-radius:0 0 8px 8px"><table class="pr" id="prTable"></table></div>
       </section>
     </div>
+
+<div class="prwrap" id="awardsView" hidden>
+  <section class="panel"><div class="essay" id="awIntro"></div></section>
+  <div class="awchips" id="awChips" role="tablist" aria-label="Awards"></div>
+  <section class="panel">
+    <div class="feedhead"><h2 id="awTitle">Awards</h2><span class="sub" id="awAsOf"></span></div>
+    <ol class="awlist" id="awList"></ol>
+    <details class="how" style="padding:4px 16px 14px"><summary>How these odds work</summary><p id="awMethod"></p></details>
+  </section>
+</div>
 
 <div class="prwrap" id="goatView" hidden>
   <div class="prhead">
@@ -729,10 +760,11 @@ function renderDetail() {
 function setView(v) {
   state.view = v;
   const table = v === "players" || v === "teams";
-  for (const k of ["players","teams","news","builder","wheel","mvp","power","goat","ovo"]) $("tab-" + k).setAttribute("aria-selected", v === k);
+  for (const k of ["players","teams","news","builder","wheel","mvp","power","awards","goat","ovo"]) $("tab-" + k).setAttribute("aria-selected", v === k);
   $("mvpView").hidden = v !== "mvp";
   $("powerView").hidden = v !== "power";
   $("goatView").hidden = v !== "goat";
+  $("awardsView").hidden = v !== "awards";
   $("ovoView").hidden = v !== "ovo";
   $("wheelView").hidden = v !== "wheel";
   document.body.dataset.arena = v === "news" || v === "wheel" ? "garden" : "farm";
@@ -748,6 +780,7 @@ function setView(v) {
   else if (v === "mvp") renderMvp();
   else if (v === "power") renderPower();
   else if (v === "goat") renderGoat();
+  else if (v === "awards") renderAwards();
   else if (v === "ovo") renderOvo();
   else render();
 }
@@ -1491,6 +1524,49 @@ function renderPower() {
       <td class="keys">${x.keys.map(esc).join(", ")}</td></tr>`; }).join("")}</tbody>`;
 }
 $("tab-power").onclick = () => setView("power");
+
+
+/* ---------- Awards: odds for each award, from awards.json (updated by scripts/update_awards.py) ---------- */
+let AW = null, AW_ERR = false, awPick = "mvp";
+try { const k = localStorage.getItem("wh-award"); if (k) awPick = k; } catch (e) {}
+(async () => {
+  try { const r = await fetch("awards.json", { cache: "no-cache" }); if (!r.ok) throw 0; AW = await r.json(); }
+  catch (e) { AW_ERR = true; }
+  if (!$("awardsView").hidden) renderAwards();
+})();
+const awPct = p => p >= 10 ? Math.round(p) + "%" : p >= 1 ? p.toFixed(1) + "%" : "<1%";
+function renderAwards() {
+  if (!AW) {
+    $("awIntro").innerHTML = AW_ERR ? `<p class="msg err">The award odds didn't load. Check your connection and reload.</p>` : `<p class="msg">Loading award odds…</p>`;
+    $("awChips").innerHTML = ""; $("awList").innerHTML = ""; return;
+  }
+  const list = AW.awards || [];
+  const a = list.find(x => x.key === awPick) || list[0];
+  if (!a) return;
+  const leaders = list.map(x => x.top[0]).filter(Boolean);
+  $("awIntro").innerHTML = `<div class="lbl">${AW.season - 1}–${String(AW.season).slice(2)} award races</div>
+    <h3>Who wins if the season ended today?</h3>
+    <p>${leaders.map((l, i) => `<b>${esc(l.name)}</b> (${esc(list[i].name.replace("Most Valuable Player", "MVP").replace("Defensive Player of the Year", "DPOY").replace("Rookie of the Year", "Rookie").replace("Sixth Man of the Year", "Sixth Man").replace("Most Improved Player", "Most Improved"))}, ${awPct(l.pct)})`).join(" · ")}</p>
+    <p class="msg">About ${Math.round(AW.games)} games into an 82-game season, so the odds are still spread out and will tighten as the races take shape.</p>`;
+  $("awChips").innerHTML = list.map(x => `<button class="awchip" role="tab" data-award="${x.key}" aria-selected="${x.key === a.key}">${esc(x.name)}<small>${esc(x.top[0] ? x.top[0].name : "")}</small></button>`).join("");
+  $("awTitle").textContent = a.name;
+  $("awAsOf").textContent = `${a.trophy} · through games of ${AW.asof}`;
+  const max = Math.max(...a.top.map(x => x.pct), 1);
+  $("awList").innerHTML = a.top.map((x, i) => {
+    const now = BBR_TO_NOW[x.team] || x.team, t = T[now];
+    return `<li class="${i === 0 ? "lead" : ""}"><div class="awrk">${i + 1}</div>
+      <div><div class="awname"><span class="sw" style="background:${t ? t.color : "#888"}"></span>${esc(x.name)} <span class="sub">${esc(t ? t.full : now)}</span></div><div class="awline">${esc(x.line)}</div></div>
+      <div class="awodds"><b>${awPct(x.pct)}</b><div class="track"><div class="fill" style="width:${(x.pct / max * 100).toFixed(1)}%"></div></div></div>
+      <div class="awwhy">${esc(x.why)}</div></li>`;
+  }).join("");
+  $("awMethod").textContent = a.method + " The odds come from how far ahead each player's score is, and they widen early in the season when there's less to go on. Stats come from Basketball-Reference.com.";
+}
+$("tab-awards").onclick = () => setView("awards");
+$("awChips").addEventListener("click", e => {
+  const b = e.target.closest("[data-award]"); if (!b) return;
+  awPick = b.dataset.award; try { localStorage.setItem("wh-award", awPick); } catch (e2) {}
+  renderAwards();
+});
 
 /* ---------- GOAT 100 ---------- */
 // Opening-night order for 2026–27 (my ranking; the top three are fixed). Bubble players (101+) are active and can climb in.
