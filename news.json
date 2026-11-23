@@ -1,5 +1,13 @@
 [
   {
+    "headline": "Nuggets' Murray, Jokić make history in wild overtime win over Bulls",
+    "source": "NBA.com",
+    "url": "https://www.nba.com/news/nuggets-murray-jokic-make-history-in-win-over-bulls",
+    "publishedAt": "2026-11-23",
+    "team": "DEN",
+    "postedAt": 1795440067000
+  },
+  {
     "headline": "OKC's Shai Gilgeous-Alexander, Miami's Giannis Antetokounmpo both out of Thunder-Heat matchup",
     "source": "NBA.com",
     "url": "https://www.nba.com/news/okcs-shai-gilgeous-alexander-miamis-giannis-antetokounmpo-both-out-of-thunder-heat-matchup",
@@ -310,13 +318,5 @@
     "publishedAt": "2026-11-11",
     "team": null,
     "postedAt": 1794450300000
-  },
-  {
-    "headline": "Starting 5: Steph Curry cooks, 7-game Sunday ahead",
-    "source": "NBA.com",
-    "url": "https://www.nba.com/news/starting-5-november-8-2026",
-    "publishedAt": "2026-11-08",
-    "team": "GSW",
-    "postedAt": 1794450200000
   }
 ]
