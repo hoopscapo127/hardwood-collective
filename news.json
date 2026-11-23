@@ -1,5 +1,21 @@
 [
   {
+    "headline": "OKC's Shai Gilgeous-Alexander, Miami's Giannis Antetokounmpo both out of Thunder-Heat matchup",
+    "source": "NBA.com",
+    "url": "https://www.nba.com/news/okcs-shai-gilgeous-alexander-miamis-giannis-antetokounmpo-both-out-of-thunder-heat-matchup",
+    "publishedAt": "2026-11-22",
+    "team": null,
+    "postedAt": 1795396431001
+  },
+  {
+    "headline": "Norman Powell sidelined with hamstring strain",
+    "source": "NBA.com",
+    "url": "https://www.nba.com/news/norman-powell-sidelined-with-hamstring-strain",
+    "publishedAt": "2026-11-22",
+    "team": "CHI",
+    "postedAt": 1795396431000
+  },
+  {
     "headline": "Victor Wembanyama finds another 'first' with a 2nd 50-15-5 stat line",
     "source": "NBA.com",
     "url": "https://www.nba.com/news/victor-wembanyama-finds-another-first-with-a-2nd-50-15-5-stat-line",
@@ -302,13 +318,5 @@
     "publishedAt": "2026-11-08",
     "team": "GSW",
     "postedAt": 1794450200000
-  },
-  {
-    "headline": "Starting 5: Luka makes history, Celtics and Warriors extend streaks",
-    "source": "NBA.com",
-    "url": "https://www.nba.com/news/starting-5-november-2-2026",
-    "publishedAt": "2026-11-02",
-    "team": null,
-    "postedAt": 1794450100000
   }
 ]
