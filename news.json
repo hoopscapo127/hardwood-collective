@@ -1,5 +1,29 @@
 [
   {
+    "headline": "Kings sign Gabe Vincent",
+    "source": "NBA.com",
+    "url": "https://www.nba.com/news/kings-sign-gabe-vincent",
+    "publishedAt": "2026-11-23",
+    "team": "SAC",
+    "postedAt": 1795482867002
+  },
+  {
+    "headline": "Nikola Jokić, Anthony Davis named NBA Players of the Week",
+    "source": "NBA.com",
+    "url": "https://www.nba.com/news/nba-players-week-jokic-davis-week-5",
+    "publishedAt": "2026-11-23",
+    "team": null,
+    "postedAt": 1795482867001
+  },
+  {
+    "headline": "Grizzlies' GG Jackson II named NBA Cares Bob Lanier Community Assist Award October winner",
+    "source": "NBA.com",
+    "url": "https://www.nba.com/news/grizzlies-gg-jackson-bob-lanier-award-october",
+    "publishedAt": "2026-11-23",
+    "team": "MEM",
+    "postedAt": 1795482867000
+  },
+  {
     "headline": "Nuggets' Murray, Jokić make history in wild overtime win over Bulls",
     "source": "NBA.com",
     "url": "https://www.nba.com/news/nuggets-murray-jokic-make-history-in-win-over-bulls",
@@ -294,29 +318,5 @@
     "publishedAt": "2026-11-10",
     "team": "DAL",
     "postedAt": 1794511064001
-  },
-  {
-    "headline": "Miami Heat to host 2028 NBA All-Star Weekend, first time since 1990, per report",
-    "source": "CBS Sports",
-    "url": "https://www.cbssports.com/nba/news/nba-all-star-weekend-2028-miami-heat/",
-    "publishedAt": "2026-11-09",
-    "team": "MIA",
-    "postedAt": 1794511064000
-  },
-  {
-    "headline": "Starting 5: Top West teams keep rolling, Cavs win in MSG",
-    "source": "NBA.com",
-    "url": "https://www.nba.com/news/starting-5-november-12-2026",
-    "publishedAt": "2026-11-12",
-    "team": null,
-    "postedAt": 1794509787000
-  },
-  {
-    "headline": "Starting 5: A new No. 1 in the East, Dame Time in OKC & Luka's historic start",
-    "source": "NBA.com",
-    "url": "https://www.nba.com/news/starting-5-november-11-2026",
-    "publishedAt": "2026-11-11",
-    "team": null,
-    "postedAt": 1794450300000
   }
 ]
