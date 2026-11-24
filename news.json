@@ -1,5 +1,13 @@
 [
   {
+    "headline": "Nets guard Nolan Traore (hamstring) sidelined 8 to 10 weeks",
+    "source": "NBA.com",
+    "url": "https://www.nba.com/news/nets-guard-nolan-traore-hamstring-sidelined-8-to-10-weeks",
+    "publishedAt": "2026-11-23",
+    "team": "BKN",
+    "postedAt": 1795526379000
+  },
+  {
     "headline": "Kings sign Gabe Vincent",
     "source": "NBA.com",
     "url": "https://www.nba.com/news/kings-sign-gabe-vincent",
@@ -310,13 +318,5 @@
     "publishedAt": "2026-11-12",
     "team": "GSW",
     "postedAt": 1794511064002
-  },
-  {
-    "headline": "Cooper Flagg beats LeBron James, Anthony Edwards to NBA history: How the Mavericks star leveled up",
-    "source": "CBS Sports",
-    "url": "https://www.cbssports.com/nba/news/cooper-flagg-nba-history-teenager-mavericks/",
-    "publishedAt": "2026-11-10",
-    "team": "DAL",
-    "postedAt": 1794511064001
   }
 ]
