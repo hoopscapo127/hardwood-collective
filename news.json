@@ -1,5 +1,21 @@
 [
   {
+    "headline": "Grizzlies rookie forward Cameron Boozer to miss at least a month with sprained right ankle",
+    "source": "NBA.com",
+    "url": "https://www.nba.com/news/memphis-cameron-boozer-to-miss-at-least-a-month-with-sprained-right-ankle",
+    "publishedAt": "2026-11-23",
+    "team": "MEM",
+    "postedAt": 1795569254001
+  },
+  {
+    "headline": "Brandon Ingram starts while making Clippers debut Monday in Houston",
+    "source": "NBA.com",
+    "url": "https://www.nba.com/news/brandon-ingram-expected-to-make-clippers-debut-monday-in-houston",
+    "publishedAt": "2026-11-24",
+    "team": "LAC",
+    "postedAt": 1795569254000
+  },
+  {
     "headline": "Nets guard Nolan Traore (hamstring) sidelined 8 to 10 weeks",
     "source": "NBA.com",
     "url": "https://www.nba.com/news/nets-guard-nolan-traore-hamstring-sidelined-8-to-10-weeks",
@@ -302,21 +318,5 @@
     "publishedAt": "2026-11-12",
     "team": "CHI",
     "postedAt": 1794531719001
-  },
-  {
-    "headline": "Jazz's nightmare season continues with Lauri Markkanen set to miss at least a month",
-    "source": "CBS Sports",
-    "url": "https://www.cbssports.com/nba/news/lauri-markkanen-injury-update-jazz-nightmare-season/",
-    "publishedAt": "2026-11-11",
-    "team": "UTA",
-    "postedAt": 1794531719000
-  },
-  {
-    "headline": "Stephen Curry injury: Warriors star to miss at least two weeks with oblique tear amid Golden State's hot start",
-    "source": "CBS Sports",
-    "url": "https://www.cbssports.com/nba/news/stephen-curry-injury-warriors-abdominal/",
-    "publishedAt": "2026-11-12",
-    "team": "GSW",
-    "postedAt": 1794511064002
   }
 ]
