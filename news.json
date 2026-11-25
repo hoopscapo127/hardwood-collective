@@ -1,5 +1,21 @@
 [
   {
+    "headline": "Wolves clear Donte DiVincenzo for full-team drills, 7 months after Achilles tendon tear",
+    "source": "AP",
+    "url": "https://www.nba.com/news/wolves-donte-divincenzo-full-team-drills",
+    "publishedAt": "2026-11-25",
+    "team": "MIN",
+    "postedAt": 1795612679001
+  },
+  {
+    "headline": "Kawhi Leonard begins on-court workouts, out at least another week",
+    "source": "NBA.com",
+    "url": "https://www.nba.com/news/kawhi-leonard-begins-on-court-workouts-out-at-least-another-week",
+    "publishedAt": "2026-11-25",
+    "team": "TOR",
+    "postedAt": 1795612679000
+  },
+  {
     "headline": "Grizzlies rookie forward Cameron Boozer to miss at least a month with sprained right ankle",
     "source": "NBA.com",
     "url": "https://www.nba.com/news/memphis-cameron-boozer-to-miss-at-least-a-month-with-sprained-right-ankle",
@@ -302,21 +318,5 @@
     "publishedAt": "2026-11-12",
     "team": "NOP",
     "postedAt": 1794581460000
-  },
-  {
-    "headline": "Rockets' Marcus Smart suspended three games for punching Warriors' Charles Bassey during in-game scuffle",
-    "source": "CBS Sports",
-    "url": "https://www.cbssports.com/nba/news/rockets-marcus-smart-suspension-punch-warriors-charles-bassey/",
-    "publishedAt": "2026-11-12",
-    "team": "HOU",
-    "postedAt": 1794531719002
-  },
-  {
-    "headline": "Caleb Wilson reportedly out 4-6 weeks with broken hand, taking away the only reason to watch the Bulls",
-    "source": "CBS Sports",
-    "url": "https://www.cbssports.com/nba/news/caleb-wilson-injury-update-bulls-rookie-of-the-year/",
-    "publishedAt": "2026-11-12",
-    "team": "CHI",
-    "postedAt": 1794531719001
   }
 ]
