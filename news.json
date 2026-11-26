@@ -1,5 +1,29 @@
 [
   {
+    "headline": "Magic sign free-agent guard/forward Kevin Porter Jr.",
+    "source": "NBA.com",
+    "url": "https://www.nba.com/news/magic-sign-kevin-porter-jr",
+    "publishedAt": "2026-11-26",
+    "team": "ORL",
+    "postedAt": 1795698952002
+  },
+  {
+    "headline": "LeBron James nets first triple-double with 76ers in win over Heat",
+    "source": "NBA.com",
+    "url": "https://www.nba.com/news/lebron-james-nets-first-triple-double-with-76ers-in-win-over-heat",
+    "publishedAt": "2026-11-25",
+    "team": "PHI",
+    "postedAt": 1795698952001
+  },
+  {
+    "headline": "Kevin Durant becomes just the 5th NBA player with 33,000 career points",
+    "source": "NBA.com",
+    "url": "https://www.nba.com/news/kevin-durant-33000-points",
+    "publishedAt": "2026-11-25",
+    "team": "HOU",
+    "postedAt": 1795698952000
+  },
+  {
     "headline": "Starting 5: Emirates NBA Cup Group Play heats up on Thanksgiving Eve",
     "source": "NBA.com",
     "url": "https://www.nba.com/news/starting-5-november-25-2026",
@@ -294,29 +318,5 @@
     "publishedAt": "2026-11-15",
     "team": null,
     "postedAt": 1794791661000
-  },
-  {
-    "headline": "Starting 5: Spurs roll to 11 straight, big nights around the NBA",
-    "source": "NBA.com",
-    "url": "https://www.nba.com/news/starting-5-november-14-2026",
-    "publishedAt": "2026-11-14",
-    "team": null,
-    "postedAt": 1794705244000
-  },
-  {
-    "headline": "Pelicans' Dejounte Murray requests trade after venting about franchise in deleted social media posts",
-    "source": "CBS Sports",
-    "url": "https://www.cbssports.com/nba/news/pelicans-dejounte-murraysocial-media-now-deleted-posts-trade/",
-    "publishedAt": "2026-11-13",
-    "team": "NOP",
-    "postedAt": 1794618851000
-  },
-  {
-    "headline": "Cunningham Scores Career-High 52 as Pistons Outlast Wizards in Double Overtime, 144-140",
-    "source": "NBA.com",
-    "url": "https://www.nba.com/pistons/news/cunningham-scores-career-high-52-as-pistons-outlast-wizards-in-double-overtime-144-140",
-    "publishedAt": "2026-11-13",
-    "team": "DET",
-    "postedAt": 1794618850000
   }
 ]
