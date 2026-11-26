@@ -1,5 +1,13 @@
 [
   {
+    "headline": "Starting 5: Emirates NBA Cup Group Play heats up on Thanksgiving Eve",
+    "source": "NBA.com",
+    "url": "https://www.nba.com/news/starting-5-november-25-2026",
+    "publishedAt": "2026-11-25",
+    "team": null,
+    "postedAt": 1795655674000
+  },
+  {
     "headline": "Wolves clear Donte DiVincenzo for full-team drills, 7 months after Achilles tendon tear",
     "source": "AP",
     "url": "https://www.nba.com/news/wolves-donte-divincenzo-full-team-drills",
@@ -310,13 +318,5 @@
     "publishedAt": "2026-11-13",
     "team": "DET",
     "postedAt": 1794618850000
-  },
-  {
-    "headline": "Zion Williamson says Pelicans need to 'look in the mirror' after 'unacceptable' blowout loss to Nets",
-    "source": "CBS Sports",
-    "url": "https://www.cbssports.com/nba/news/zion-williamson-calls-out-pelicans-losing-streak-nets/",
-    "publishedAt": "2026-11-12",
-    "team": "NOP",
-    "postedAt": 1794581460000
   }
 ]
