@@ -1,5 +1,13 @@
 [
   {
+    "headline": "LaMelo Ball helped off court after late ankle twist in Timberwolves win",
+    "source": "NBA.com",
+    "url": "https://www.nba.com/news/lamelo-ball-leaves-game-with-ankle-injury",
+    "publishedAt": "2026-11-26",
+    "team": "MIN",
+    "postedAt": 1795785397000
+  },
+  {
     "headline": "Jaylen Brown misses second half vs. Miami with hamstring tightness",
     "source": "NBA.com",
     "url": "https://www.nba.com/news/jaylen-brown-ruled-out-hamstring-tightness",
@@ -310,13 +318,5 @@
     "publishedAt": "2026-11-17",
     "team": "PHI",
     "postedAt": 1794964470001
-  },
-  {
-    "headline": "Lakers rule out Austin Reaves, Walker Kessler with injuries for next game vs. Hornets",
-    "source": "AP via NBA.com",
-    "url": "https://www.nba.com/news/lakers-rule-out-reaves-kessler-vs-hornets",
-    "publishedAt": "2026-11-17",
-    "team": "LAL",
-    "postedAt": 1794964470000
   }
 ]
