@@ -1,5 +1,29 @@
 [
   {
+    "headline": "Jaylen Brown misses second half vs. Miami with hamstring tightness",
+    "source": "NBA.com",
+    "url": "https://www.nba.com/news/jaylen-brown-ruled-out-hamstring-tightness",
+    "publishedAt": "2026-11-25",
+    "team": "PHI",
+    "postedAt": 1795742061002
+  },
+  {
+    "headline": "NBA announces plans for €10 billion initiative supported by leading global investors to develop arenas and entertainment districts across Europe",
+    "source": "NBA.com",
+    "url": "https://www.nba.com/news/nba-announces-plans-for-e10-billion-initiative-supported-by-leading-global-investors-to-develop-arenas-and-entertainment-districts-across-europe",
+    "publishedAt": "2026-11-25",
+    "team": null,
+    "postedAt": 1795742061001
+  },
+  {
+    "headline": "Damian Lillard and Portland thankful to be reunited",
+    "source": "NBA.com",
+    "url": "https://www.nba.com/news/trail-blazers-damian-lillard-perfect-pairing",
+    "publishedAt": "2026-11-25",
+    "team": "POR",
+    "postedAt": 1795742061000
+  },
+  {
     "headline": "Magic sign free-agent guard/forward Kevin Porter Jr.",
     "source": "NBA.com",
     "url": "https://www.nba.com/news/magic-sign-kevin-porter-jr",
@@ -294,29 +318,5 @@
     "publishedAt": "2026-11-17",
     "team": "LAL",
     "postedAt": 1794964470000
-  },
-  {
-    "headline": "Grizzlies' GG Jackson to undergo foot surgery",
-    "source": "AP via NBA.com",
-    "url": "https://www.nba.com/news/grizzlies-gg-jackson-to-undergo-foot-surgery",
-    "publishedAt": "2026-11-16",
-    "team": "MEM",
-    "postedAt": 1794878039001
-  },
-  {
-    "headline": "Nets' Josh Minott fined for obscene gesture toward fans",
-    "source": "NBA.com",
-    "url": "https://www.nba.com/news/brooklyn-nets-josh-minott-fined",
-    "publishedAt": "2026-11-16",
-    "team": "BKN",
-    "postedAt": 1794878039000
-  },
-  {
-    "headline": "LeBron James passes Jason Kidd for third all-time in assists",
-    "source": "NBA.com",
-    "url": "https://www.nba.com/news/lebron-games-passes-jason-kidd-assists",
-    "publishedAt": "2026-11-15",
-    "team": null,
-    "postedAt": 1794791661000
   }
 ]
